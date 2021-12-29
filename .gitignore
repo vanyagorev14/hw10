@@ -132,5 +132,4 @@ dmypy.json
 db.sqlite3
 venv
 example.py
-.flake8
 .DS_Store

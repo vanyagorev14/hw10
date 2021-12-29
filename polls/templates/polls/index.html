@@ -5,9 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
+<p><a href="{% url 'polls:contact_form' %}">Contact</a></p>
+<p><a href="{% url 'polls:triangle_form' %}">Triangle Form</a><br><br>
     {% if latest_question_list %}
         <ul>
         {% for question in latest_question_list %}
