@@ -43,3 +43,12 @@ class Person(models.Model):
 
     def url_return(self):
         return reverse('polls:person-detail', args=[str(self.id)])
+
+
+class Log(models.Model):
+    path = models.FilePathField(max_length=100, help_text="PATH")
+    method = models.CharField(max_length=4, help_text='METHOD')
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.method} {self.path}'

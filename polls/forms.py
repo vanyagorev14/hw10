@@ -49,3 +49,4 @@ class PersonForms(forms.ModelForm):
     class Meta:
         model = Person
         fields = ['first_name', 'family_name']
+
