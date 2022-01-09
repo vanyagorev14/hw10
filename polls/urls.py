@@ -17,7 +17,7 @@ urlpatterns = [
 
     path('create_question_form', views.create_question_form, name='create_question_form'),
 
-    path('triangle_form', views.triangle_form, name='triangle_form')
+    path('triangle_form', views.triangle_form, name='triangle_form'),
 
-
+    path('persons', views.PersonForms, name='name of persons')
 ]

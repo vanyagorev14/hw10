@@ -3,18 +3,18 @@ import math
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 from django.views import generic
+from django.views.generic import CreateView, UpdateView
 
-from .models import Choice, Question
-from .forms import ContactForm, QuestionForm, TriangleForm
+from .models import Choice, Question, Person
+from .forms import ContactForm, QuestionForm, TriangleForm, PersonForms
 
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
-
 
     def get_queryset(self):
         """
@@ -129,5 +129,19 @@ def triangle_form(request):
     else:
         form = TriangleForm()
     return render(request, 'polls/triangle_form.html', {
-            'form': form,
+        'form': form,
     })
+
+
+def person_plus(request):
+    if request.method == 'POST':
+        form = PersonForms(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('polls:persons')
+    else:
+        form = PersonForms(instance=Person())
+
+    return render(request, 'polls/detail_of_person.html'), {
+        'form': form,
+    }

@@ -1,6 +1,6 @@
 from django import forms
 
-from polls.models import Question
+from polls.models import Question, Person
 
 
 class ContactForm(forms.Form):
@@ -44,3 +44,8 @@ class TriangleForm(forms.Form):
         if b <= 0:
             raise forms.ValidationError("The second corner of Canthious can't be 0")
         return b
+
+class PersonForms(forms.ModelForm):
+    class Meta:
+        model = Person
+        fields = ['first_name', 'family_name']

@@ -10,6 +10,7 @@
 <body>
 <p><a href="{% url 'polls:contact_form' %}">Contact</a></p>
 <p><a href="{% url 'polls:triangle_form' %}">Triangle Form</a><br><br>
+<p><a href="{% url 'polls:name of persons' %}">Person roll</a><br><br>
     {% if latest_question_list %}
         <ul>
         {% for question in latest_question_list %}

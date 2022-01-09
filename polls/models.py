@@ -31,3 +31,15 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+class Person(models.Model):
+    first_name = models.CharField(_('first_name'), max_length=120, help_text='Here you must enter name')
+    family_name = models.CharField(_('family_name'), max_length=120, help_text='Here you must enter surname')
+    email = models.EmailField(_('email_adress'), help_text='You must enter email field')
+
+    def __str__(self):
+        return '{0}, {1}'.format(self.first_name, self.family_name)
+
+    def url_return(self):
+        return reverse('polls:person-detail', args=[str(self.id)])
