@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'polls',
 
+    'homework10'
 ]
 
 MIDDLEWARE = [
@@ -51,7 +52,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'homework_Project.middleware.log_request.LogMiddleware'
+    'homework_Project.middleware.log_request.LogMiddleware',
+
+    'homework10'
 ]
 
 ROOT_URLCONF = 'homework_Project.urls'
@@ -125,3 +128,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+GRAPH_MODELS = {
+  'app_labels': ["homework10"],
+}

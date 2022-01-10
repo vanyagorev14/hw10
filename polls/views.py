@@ -145,3 +145,4 @@ def person_plus(request):
     return render(request, 'polls/detail_of_person.html'), {
         'form': form,
     }
+
